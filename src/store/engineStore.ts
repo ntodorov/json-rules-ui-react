@@ -144,5 +144,13 @@ export const useEngineStore = create<EngineState>()(
         console.error('Failed to save to storage:', error);
       }
     },
+
+    reset: () =>
+      set((state) => {
+        state.facts = [];
+        state.rules = [];
+        state.lastRunResult = undefined;
+        localStorage.removeItem(STORAGE_KEY);
+      }),
   }))
 );

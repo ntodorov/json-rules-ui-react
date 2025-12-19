@@ -12,6 +12,7 @@ export function useEngine() {
   const exportData = useEngineStore((state) => state.exportData);
   const loadFromStorage = useEngineStore((state) => state.loadFromStorage);
   const saveToStorage = useEngineStore((state) => state.saveToStorage);
+  const reset = useEngineStore((state) => state.reset);
 
   return {
     facts,
@@ -23,5 +24,6 @@ export function useEngine() {
     exportData,
     loadFromStorage,
     saveToStorage,
+    reset,
   };
 }

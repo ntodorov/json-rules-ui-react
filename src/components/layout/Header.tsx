@@ -1,6 +1,14 @@
 import { useState } from 'react';
-import { Play, Download, Upload, Moon, Sun, Settings } from 'lucide-react';
-import { Button, Tooltip } from '../common';
+import {
+  Play,
+  Download,
+  Upload,
+  Moon,
+  Sun,
+  Settings,
+  RotateCcw,
+} from 'lucide-react';
+import { Button, Tooltip, Modal } from '../common';
 import { useEngine } from '../../hooks/useEngine';
 import toast from 'react-hot-toast';
 
@@ -15,8 +23,9 @@ export function Header({
   isDarkMode,
   onToggleDarkMode,
 }: HeaderProps) {
-  const { rules, facts, exportData, importData } = useEngine();
+  const { rules, facts, exportData, importData, reset } = useEngine();
   const [isImporting, setIsImporting] = useState(false);
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
 
   const handleExport = () => {
     const data = exportData();
@@ -62,6 +71,12 @@ export function Header({
     input.click();
   };
 
+  const handleReset = () => {
+    reset();
+    setShowResetConfirm(false);
+    toast.success('Engine reset to clean slate');
+  };
+
   const hasRulesAndFacts = rules.length > 0 && facts.length > 0;
 
   return (
@@ -100,11 +115,48 @@ export function Header({
             </Button>
           </Tooltip>
 
+          <Tooltip content="Reset to clean slate">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setShowResetConfirm(true)}
+            >
+              <RotateCcw className="h-4 w-4" />
+            </Button>
+          </Tooltip>
+
           <Button onClick={onRunClick} disabled={!hasRulesAndFacts}>
             <Play className="mr-2 h-4 w-4" />
             Run Engine
           </Button>
         </div>
+
+        <Modal
+          isOpen={showResetConfirm}
+          onClose={() => setShowResetConfirm(false)}
+          title="Reset Engine"
+        >
+          <div className="space-y-4">
+            <p className="text-sm text-foreground/80">
+              This will permanently delete all rules, facts, and results. Are
+              you sure you want to start with a clean slate?
+            </p>
+            <div className="flex gap-3 justify-end">
+              <Button
+                variant="outline"
+                onClick={() => setShowResetConfirm(false)}
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={handleReset}
+                className="bg-red-600 hover:bg-red-700 text-white"
+              >
+                Reset All
+              </Button>
+            </div>
+          </div>
+        </Modal>
       </div>
     </header>
   );
