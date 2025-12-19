@@ -32,7 +32,7 @@ export function FactCard({
       : null;
 
   return (
-    <Card className="group relative overflow-hidden transition-shadow hover:shadow-md">
+    <Card className="group relative transition-shadow hover:shadow-md">
       <div className="p-4">
         <div className="flex items-start justify-between gap-2">
           <div className="flex-1 min-w-0">
