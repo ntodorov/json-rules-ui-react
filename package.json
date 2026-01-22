@@ -1,13 +1,30 @@
 {
   "name": "json-rules-ui-react",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A beautiful visual editor for creating and testing json-rules-engine rules",
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ntodorov/json-rules-ui-react.git"
+  },
+  "homepage": "https://ntodorov.github.io/json-rules-ui-react",
+  "keywords": [
+    "json-rules-engine",
+    "rules-engine",
+    "business-rules",
+    "visual-editor",
+    "react",
+    "typescript"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:gh-pages": "GITHUB_PAGES=true npm run build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build:gh-pages && npx gh-pages -d dist"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
@@ -30,6 +47,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "gh-pages": "^6.2.0",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
