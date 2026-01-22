@@ -109,4 +109,5 @@ export interface EngineState {
 
   loadFromStorage: () => void;
   saveToStorage: () => void;
+  reset: () => void;
 }
