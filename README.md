@@ -51,8 +51,6 @@ Stop writing complex JSON by hand. Build your business rules visually, test them
 ### Condition Builder
 <img src="docs/screenshot-conditions.png" alt="Condition Builder" width="800" />
 
-### Run Results
-<img src="docs/screenshot-results.png" alt="Run Results" width="800" />
 
 </details>
 
