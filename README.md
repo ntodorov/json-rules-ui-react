@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/CacheControl/json-rules-engine/master/docs/images/jre-256.png" alt="JSON Rules Engine UI" width="120" height="120" />
+  <img src="https://camo.githubusercontent.com/7a4599da31c06f8df59a21de622ecaf8b6cace097a41f44793c8d0f867388176/687474703a2f2f692e696d6775722e636f6d2f4d417a71376c322e706e67" alt="JSON Rules Engine UI" width="120" height="120" />
 </p>
 
 <h1 align="center">JSON Rules Engine UI</h1>
